@@ -38,7 +38,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${poppins.className} antialiased dark`}>
 				{children}
-				<footer className="flex flex-row gap-3xl p-4 justify-center">
+				<footer className="flex flex-row gap-3xl p-4 justify-center bg-black">
 					<Typography variant="p3" color="secondary-200">
 						<Link
 							className="hover:underline"
