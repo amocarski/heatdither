@@ -68,6 +68,7 @@ const Dithering = () => {
 		const pane = new Pane({
 			container: containerRef.current,
 			title: "Controls",
+			expanded: window.innerWidth >= 768,
 		}) as Pane & {
 			addBinding: (
 				obj: Record<string, unknown>,
