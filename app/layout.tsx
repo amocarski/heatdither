@@ -12,12 +12,12 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
 	title: "heat·dith·er",
-	description: "A playground for visual heatmap dithering",
+	description: "A visual playground for exploring custom heatmaps dithering UI shaders.",
 	openGraph: {
-		title: "Visual Heatmap Dithering Playground",
-		description: "A playground for visual heatmap dithering",
-		url: "https://visual-heatmap-dithering-playground.vercel.app",
-		siteName: "Visual Heatmap Dithering Playground",
+		title: "heat·dith·er",
+		description: "A visual playground for exploring custom heatmaps dithering UI shaders.",
+		url: "https://heatdither.mocarski.design",
+		siteName: "heat·dith·er",
 		images: {
 			url: "/og-image.png",
 			width: 1200,
