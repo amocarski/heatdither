@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { Typography } from "@/components/ui/typography";
 
 const poppins = Poppins({
 	variable: "--font-poppins",
@@ -36,6 +38,26 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${poppins.className} antialiased dark`}>
 				{children}
+				<footer className="flex flex-row gap-3xl p-4 justify-center">
+					<Typography variant="p3" color="secondary-200">
+						<Link
+							className="hover:underline"
+							href="https://github.com/amocarski/heatdither"
+							target="_blank"
+						>
+							GitHub
+						</Link>
+					</Typography>
+					<Typography variant="p3" color="secondary-200">
+						<Link
+							className="hover:underline"
+							href="https://mocarski.design/"
+							target="_blank"
+						>
+							mocarski.design
+						</Link>
+					</Typography>
+				</footer>
 			</body>
 		</html>
 	);
