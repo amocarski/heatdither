@@ -285,14 +285,14 @@ export const DitheringTypes = {
 export type DitheringShape = keyof typeof DitheringShapes;
 export type DitheringType = keyof typeof DitheringTypes;
 
-interface DitheredMatrixProps {
+type DitheredMatrixProps = {
 	className?: string;
 	shape?: DitheringShape;
 	type?: DitheringType;
 	pxSize?: number;
 	speed?: number;
 	interactive?: boolean;
-}
+};
 
 function createShader(
 	gl: WebGL2RenderingContext,

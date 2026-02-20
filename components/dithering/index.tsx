@@ -2,15 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Pane } from "tweakpane";
+import CTA from "@/components/cta";
+import {
+	type CtaStyleProps,
+	ctaVariants,
+} from "@/components/dithering/cta-variants";
+import type {
+	DitheringShape,
+	DitheringType,
+} from "@/components/dithering/dithered-matrix";
+import ShaderVariant from "@/components/shader-variant";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
-
-import { ctaVariants } from "./cta-variants";
-import {
-	DitheredMatrix,
-	type DitheringShape,
-	type DitheringType,
-} from "./dithered-matrix";
 
 type Tab = "variants" | "ctas";
 
@@ -183,11 +186,11 @@ const Dithering = () => {
 	}, []);
 
 	return (
-		<div className="flex-1 self-stretch overflow-y-auto py-6">
+		<div className="flex-1 self-stretch overflow-y-auto py-5xl">
 			<div ref={containerRef} className="fixed top-4 right-4 z-50" />
 
-			<div className="mx-auto max-w-[1000px] w-full px-4">
-				<div className="mb-6 space-y-2 max-w-[600px]">
+			<div className="mx-auto max-w-[1000px] w-full px-3xl mb-2xl">
+				<div className="mb-5xl space-y-2 max-w-[600px]">
 					<Typography variant="h2">heat·dith·er </Typography>
 					<Typography variant="h4" color="secondary-300">
 						/ˈhiːtˌdɪðər/
@@ -199,9 +202,8 @@ const Dithering = () => {
 						interaction states.{" "}
 					</Typography>
 				</div>
-				<div className="mb-7xl flex gap-2">
+				<div className="mb-7xl flex gap-xl">
 					<Button
-						type="button"
 						onClick={() => setActiveTab("variants")}
 						variant={activeTab === "variants" ? "default" : "ghost"}
 						borderRadius={bevelRadius}
@@ -210,7 +212,6 @@ const Dithering = () => {
 						Variants
 					</Button>
 					<Button
-						type="button"
 						onClick={() => setActiveTab("ctas")}
 						variant={activeTab === "ctas" ? "default" : "ghost"}
 						borderRadius={bevelRadius}
@@ -221,55 +222,38 @@ const Dithering = () => {
 				</div>
 
 				{activeTab === "variants" && (
-					<div className="flex flex-col gap-40">
+					<div className="flex flex-col gap-7xl">
 						{matrixConfigs.map((config, index) => (
-							<div key={config.name}>
-								<Typography variant="label5" className="mb-2">
-									{index + 1}. {config.name}
-								</Typography>
-								<div
-									className="overflow-hidden h-[460px] w-full"
-									style={
-										{
-											borderRadius: `${bevelRadius}px`,
-											cornerShape: cornerShapeStyle,
-										} as React.CSSProperties
-									}
-								>
-									<DitheredMatrix
-										shape={config.shape}
-										type={config.type}
-										pxSize={pixelSize}
-										speed={speeds[index]}
-										interactive={interactive}
-									/>
-								</div>
-							</div>
+							<ShaderVariant
+								key={config.name}
+								name={config.name}
+								index={index}
+								shape={config.shape}
+								type={config.type}
+								pxSize={pixelSize}
+								speed={speeds[index]}
+								interactive={interactive}
+								bevelRadius={bevelRadius}
+								cornerShapeStyle={cornerShapeStyle}
+							/>
 						))}
 					</div>
 				)}
 
 				{activeTab === "ctas" && (
-					<>
-						<div className="mb-6">
-							<Typography variant="h2">CTA Examples</Typography>
-						</div>
-
-						<div className="flex flex-col gap-40">
-							{ctaVariants.map((cta, index) => (
-								<div key={cta.name}>
-									<Typography variant="label5" className="mb-4">
-										{index + 1}. {cta.name}
-									</Typography>
-									<cta.component
-										borderRadius={bevelRadius}
-										cornerShapeStyle={cornerShapeStyle}
-										speed={ctaSpeeds[index] ?? 0.5}
-									/>
-								</div>
-							))}
-						</div>
-					</>
+					<div className="flex flex-col gap-7xl">
+						{ctaVariants.map((cta, index) => (
+							<CTA
+								key={cta.name}
+								name={cta.name}
+								index={index}
+								Component={cta.component as React.FC<CtaStyleProps>}
+								bevelRadius={bevelRadius}
+								cornerShapeStyle={cornerShapeStyle}
+								speed={ctaSpeeds[index] ?? 0.5}
+							/>
+						))}
+					</div>
 				)}
 			</div>
 		</div>

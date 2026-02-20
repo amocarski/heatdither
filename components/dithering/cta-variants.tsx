@@ -1,10 +1,9 @@
 "use client";
 
 import type React from "react";
+import { DitheredMatrix } from "@/components/dithering/dithered-matrix";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
-
-import { DitheredMatrix } from "./dithered-matrix";
 
 export type CtaStyleProps = {
 	borderRadius: number;
@@ -19,7 +18,7 @@ export const CtaSideBySide = ({
 }: CtaStyleProps) => {
 	return (
 		<div
-			className="w-full overflow-hidden bg-primary-200"
+			className="w-full overflow-hidden bg-primary-300"
 			style={
 				{
 					borderRadius: `${borderRadius}px`,
@@ -28,13 +27,13 @@ export const CtaSideBySide = ({
 			}
 		>
 			<div className="flex flex-col lg:flex-row lg:items-stretch">
-				<div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
+				<div className="flex-1 p-4xl flex flex-col justify-center">
 					<Typography variant="h2">Ready to get started?</Typography>
 					<Typography variant="p2" color="primary-200" className="mt-xl">
 						Join thousands of developers building amazing experiences with our
 						platform.
 					</Typography>
-					<div className="flex flex-wrap gap-3 mt-4xl">
+					<div className="flex flex-wrap gap-xl mt-4xl">
 						<Button
 							borderRadius={borderRadius}
 							cornerShapeStyle={cornerShapeStyle}
@@ -79,8 +78,8 @@ export const CtaTopStrip = ({
 				} as React.CSSProperties
 			}
 		>
-			<div className="p-8 lg:p-12">
-				<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+			<div className="p-4xl">
+				<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-xl">
 					<div>
 						<Typography variant="h3" color="fixed-primary-100">
 							Limited time offer
@@ -93,7 +92,7 @@ export const CtaTopStrip = ({
 							Get 50% off your first year when you sign up today.
 						</Typography>
 					</div>
-					<div className="flex gap-3 shrink-0">
+					<div className="flex shrink-0">
 						<Button
 							size="lg"
 							borderRadius={borderRadius}
@@ -124,7 +123,7 @@ export const CtaSplitLarge = ({
 }: CtaStyleProps) => {
 	return (
 		<div
-			className="w-full overflow-hidden bg-primary-200"
+			className="w-full overflow-hidden bg-primary-300"
 			style={
 				{
 					borderRadius: `${borderRadius}px`,
@@ -143,22 +142,16 @@ export const CtaSplitLarge = ({
 					/>
 				</div>
 
-				<div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
-					<Typography
-						variant="label5"
-						color="fixed-secondary-100"
-						className="mb-2"
-					>
+				<div className="flex-1 p-4xl gap-xl flex flex-col justify-center">
+					<Typography variant="label5" color="fixed-secondary-100">
 						New Release
 					</Typography>
-					<Typography variant="h2" className="mb-4">
-						Version 2.0 is here
-					</Typography>
-					<Typography variant="p2" color="primary-200" className="mb-6">
+					<Typography variant="h2">Version 2.0 is here</Typography>
+					<Typography variant="p2" color="primary-200">
 						Packed with new features, performance improvements, and a completely
 						redesigned interface.
 					</Typography>
-					<div className="flex flex-wrap gap-3 mt-4xl">
+					<div className="flex flex-wrap gap-xl mt-7xl">
 						<Button
 							size="lg"
 							borderRadius={borderRadius}
@@ -188,7 +181,7 @@ export const CtaRipple = ({
 }: CtaStyleProps) => {
 	return (
 		<div
-			className="w-full overflow-hidden bg-primary-200"
+			className="w-full h-fit overflow-hidden bg-primary-300"
 			style={
 				{
 					borderRadius: `${borderRadius}px`,
@@ -197,7 +190,7 @@ export const CtaRipple = ({
 			}
 		>
 			<div className="relative flex flex-col lg:flex-row">
-				<div className="h-[250px] lg:h-[350px] w-full">
+				<div className="h-[550px] lg:h-[350px] w-full">
 					<DitheredMatrix
 						shape="ripple"
 						type="8x8"
@@ -207,7 +200,7 @@ export const CtaRipple = ({
 					/>
 				</div>
 				<div
-					className="bg-primary-200 absolute flex-1 p-8 flex flex-col justify-center items-center max-w-[650px] transform left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+					className="mx-auto _w-full bg-primary-300 absolute flex-1 p-4xl flex flex-col justify-center items-center max-w-[650px] transform left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
 					style={
 						{
 							borderRadius: `${borderRadius}px`,
@@ -215,21 +208,24 @@ export const CtaRipple = ({
 						} as React.CSSProperties
 					}
 				>
-					<Typography variant="h2" className="mb-4">
+					<Typography variant="h2" className="mb-xl text-center">
 						Get Started
 					</Typography>
-					<Typography variant="p2" color="primary-200" className=" text-center">
+					<Typography
+						variant="p2"
+						color="primary-200"
+						className="text-center mb-3xl"
+					>
 						Join thousands of developers building amazing experiences with our
 						platform.
 					</Typography>
-					<div className="flex flex-wrap gap-3 mt-4xl">
-						<Button
-							borderRadius={borderRadius}
-							cornerShapeStyle={cornerShapeStyle}
-						>
-							Get Started
-						</Button>
-					</div>
+
+					<Button
+						borderRadius={borderRadius}
+						cornerShapeStyle={cornerShapeStyle}
+					>
+						Get Started
+					</Button>
 				</div>
 			</div>
 		</div>
